@@ -20,10 +20,10 @@ class AwesomeNativeBase extends Component {
                     <Tab heading={ <TabHeading><Icon name="camera" /><Text>Camera</Text></TabHeading>}>
                         <Tab1 />
                     </Tab>
-                    <Tab heading={ <TabHeading><Text>No Icon</Text></TabHeading>}>
-                        <Tab2 firstname={this.state.firstname}/>
+                    <Tab heading={ <TabHeading><Icon name="film" /><Text>Movie</Text></TabHeading>}>
+                        <Tab2 />
                     </Tab>
-                    <Tab heading={ <TabHeading><Icon name="apps" /></TabHeading>}>
+                    <Tab heading={ <TabHeading><Icon name="apps" /><Text>Apps</Text></TabHeading>}>
                         <Tab3 />
                     </Tab>
                 </Tabs>
