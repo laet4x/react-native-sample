@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1083080055542",
+    "firebase_url": "https://login-58185.firebaseio.com",
+    "project_id": "login-58185",
+    "storage_bucket": "login-58185.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083080055542:android:f6a8dad5f77f65ba",
+        "android_client_info": {
+          "package_name": "com.awesomenativebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1083080055542-18oasuam0c3hpicur5tcif37ee4if9a1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWclAheTQeUeRL0d_3tfKr20KWrqQ-S4I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

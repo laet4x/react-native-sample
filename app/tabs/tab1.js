@@ -1,16 +1,85 @@
 import React, { Component } from 'react';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, Tab, Tabs, TabHeading } from 'native-base';
+//native base
+import { Container, Content, Button, Icon, Fab, View, Text, Form, Item, Input } from 'native-base';
+//react native
+import {
+  StyleSheet,
+  ListView,
+  TextInput,
+  TouchableHighlight,
+  TouchableOpacity, // ADDED
+} from 'react-native';
+import RNFirebase from 'react-native-firebase';
+
+const configurationOptions = {
+  debug: true
+};
+const firebase = new RNFirebase(configurationOptions);
 
 class Tab1 extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            active: false,
+            formEnabled: false,
+            email: '',
+            password: ''
+        };
+       this.formEnabled = this.formEnabled.bind(this);
+       this.container = this.container.bind(this);
+       this.createUserWithEmailAndPassword =this.createUserWithEmailAndPassword.bind(this);
+    }
+
     render() {
-        return (
-            <Container>
+        return this.container(this.formEnabled());
+    }
+
+    container (form){
+        return(
+             <Container>
                 <Content>
-                   <Text>Tab1</Text>
-                </Content>
+                {form}
+               </Content>
             </Container>
+        );            
+        
+     }   
+
+     formEnabled (){
+      return (
+           <Form>
+            <Item>
+                <Input placeholder="Email" 
+                value={this.state.email} 
+                onChangeText={(text) => this.setState({email: text})}
+                />
+            </Item>
+            <Item last>
+                <Input placeholder="Password" 
+                type="password"
+                value={this.state.password}
+                onChangeText={(text) => this.setState({password: text})} 
+                />
+            </Item>
+             <Button onPress={this.createUserWithEmailAndPassword}>
+                <Text>Click Me!</Text>
+            </Button>
+        </Form>
         );
     }
+    createUserWithEmailAndPassword(){
+
+        var email = this.state.email;
+        var password = this.state.password;
+
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+          .then((user) => {
+            console.log('user created', user)
+          })
+          .catch((err) => {
+            console.log('An error occurred', 'The email address is already in use by another account.');
+          });
+   }
 }
 
 export default Tab1;

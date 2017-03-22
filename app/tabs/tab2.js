@@ -10,7 +10,6 @@ class Tab2 extends Component {
         this.getMoviesFromApiAsync = this.getMoviesFromApiAsync.bind(this);
         this.listView = this.listView.bind(this);
         this.listLoading = this.listLoading.bind(this);
-
      }
 
     componentDidMount(){

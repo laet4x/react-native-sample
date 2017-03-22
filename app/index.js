@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, Tab, Tabs, TabHeading } from 'native-base';
+
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, Tab, Tabs, TabHeading,} from 'native-base';
 
 import Tab1 from './tabs/tab1';
 import Tab2 from './tabs/tab2';
@@ -9,7 +10,9 @@ class AwesomeNativeBase extends Component {
    constructor(props) {
     super(props);
     this.state = {
-      firstname: 'Al', // states for connecting to ddp
+          firstname: 'Al', 
+          active: false,
+          form: false
         }
      }
     render() {
@@ -17,7 +20,7 @@ class AwesomeNativeBase extends Component {
             <Container>
                 <Header hasTabs/>
                 <Tabs>
-                    <Tab heading={ <TabHeading><Icon name="camera" /><Text>Camera</Text></TabHeading>}>
+                    <Tab heading={ <TabHeading><Icon name="home" /><Text>Home</Text></TabHeading>}>
                         <Tab1 />
                     </Tab>
                     <Tab heading={ <TabHeading><Icon name="film" /><Text>Movie</Text></TabHeading>}>
@@ -26,15 +29,7 @@ class AwesomeNativeBase extends Component {
                     <Tab heading={ <TabHeading><Icon name="apps" /><Text>Apps</Text></TabHeading>}>
                         <Tab3 />
                     </Tab>
-                </Tabs>
-
-                <Footer>
-                    <FooterTab>
-                        <Button full>
-                            <Text>Footer</Text>
-                        </Button>
-                    </FooterTab>
-                </Footer>
+                </Tabs>              
             </Container>
         );
     }
