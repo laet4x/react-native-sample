@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //native base
-import { Container, Content, Button, Icon, Fab, View, Text, Form, Item, Input } from 'native-base';
+import { Container, Content, Toast, Button, Icon, Fab, View, Text, Form, Item, Input } from 'native-base';
 //react native
 import {
   StyleSheet,
@@ -8,6 +8,7 @@ import {
   TextInput,
   TouchableHighlight,
   TouchableOpacity, // ADDED
+  ToastAndroid,
 } from 'react-native';
 import RNFirebase from 'react-native-firebase';
 
@@ -23,18 +24,25 @@ class Tab1 extends Component {
             active: false,
             formEnabled: false,
             email: '',
-            password: ''
+            password: '',
+            showToast: false,
+            errorToast: false,
+            toast: '',
         };
        this.formEnabled = this.formEnabled.bind(this);
        this.container = this.container.bind(this);
        this.createUserWithEmailAndPassword =this.createUserWithEmailAndPassword.bind(this);
     }
 
+    componentWillMount() {
+
+    }
+
     render() {
         return this.container(this.formEnabled());
     }
 
-    container (form){
+    container (form){  
         return(
              <Container>
                 <Content>
@@ -68,16 +76,16 @@ class Tab1 extends Component {
         );
     }
     createUserWithEmailAndPassword(){
-
         var email = this.state.email;
         var password = this.state.password;
-
         firebase.auth().createUserWithEmailAndPassword(email, password)
           .then((user) => {
-            console.log('user created', user)
+            console.log('user created', user);
+            ToastAndroid.show('User Created', ToastAndroid.SHORT)
           })
           .catch((err) => {
             console.log('An error occurred', 'The email address is already in use by another account.');
+            ToastAndroid.show('The email address is already in use', ToastAndroid.SHORT);
           });
    }
 }
